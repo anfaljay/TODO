@@ -11,12 +11,20 @@ input{
   border-radius: 20px;
   outline: none;
 }
-button{
-  border-radius: 50px;
+.button{
   font-size: 30px;
   font-family:'Love Ya Like A Sister', cursive;
   color: black;
   border:none;
+  background: transparent;
+}
+.button2{
+  font-size: 30px;
+  font-family:'Love Ya Like A Sister', cursive;
+  color: black;
+  border-radius: 30px;
+
+  background: transparent;
 }
 label{
   font-size: 30px;

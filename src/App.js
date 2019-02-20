@@ -38,20 +38,20 @@ class App extends Component {
 
       listData:{
       newItem: " "},
-    }
-    )}
-    deleteTask= (index)=>{
-      const deleting = this.state.lists.splice(index, 1);
+    })
+  }
+  deleteTask= (del)=>{
+      const deleting = this.state.lists.splice(del, 1);
       this.setState({
-        newItem: deleting
+        listData: deleting
       })
     }
-
-
   //shares the react components using props 
   render() {
     //goes through the list items and map them to get the items inside 
-    const lists = this.state.lists.map(item => <Todo item = {item}/>)
+    const lists = this.state.lists.map(item => 
+    //we pass the functions we want to use in the todo file
+    <Todo item = {item} deleteTask={this.deleteTask}/>)
     //return the values 
     return (
       <div>
@@ -72,7 +72,7 @@ class App extends Component {
             value={this.state.listData.newItem} 
             type="text" 
             /> 
-            <button type ="submit">Add</button>
+            <button className="button" type ="submit">Add</button>
           </form>
           {/* 
             takes the items and puts them in a list 

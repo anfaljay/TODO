@@ -16,20 +16,15 @@ class Todo extends Component {
   render() {
     return (
       <div>
-          <li onClick={this.checkTask} className= {this.state.check}> 
-          📌{this.props.item}  
-          
-          <button className="delete" type="delete" name="deleteTask"> 
-            onClick ={()=> this.props.deleteTask(this.props.index)} 
-              
-              
-              
-          </button></li>
-          {/* <img src ="https://banner2.kisspng.com/20180329/aie/kisspng-post-it-note-paper-sticker-sticky-notes-sticky-notes-5abcc91f0e5cc4.2234791915223216950588.jpg" /> */}
-      
+        <li onClick={this.checkTask} className= {this.state.check}>
+          <span role="img" aria-label="emoji">📌  </span>{this.props.item}       
+            <button className="button2" onClick={()=> this.props.deleteTask(this.props.del)}>Delete Task</button>
+              {/* type="delete"*/}
+              {/* name="deleteTask"*/}
+        </li>
       </div>
-  );}
-}
+   )}
+  }
   
 export default Todo;
   
