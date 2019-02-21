@@ -31,7 +31,7 @@ class App extends Component {
     const copy = this.state.lists.slice(0);
     //pushes and adds the new tasks 
     copy.push(this.state.listData.newItem)
-    console.log(copy)
+    
     //it sets the new copy to the original 
     this.setState({
       lists: copy,
@@ -40,18 +40,22 @@ class App extends Component {
       newItem: " "},
     })
   }
-  deleteTask= (del)=>{
-      const deleting = this.state.lists.splice(del, 1);
+  deleteTask= (e , del )=>{
+    //an event that implement the change to only one and leaving the other
+    e.stopPropagation()
+    const copy = this.state.lists.slice(0)
+    copy.splice(del,1);
+
       this.setState({
-        listData: deleting
+        lists: copy
       })
     }
   //shares the react components using props 
   render() {
     //goes through the list items and map them to get the items inside 
-    const lists = this.state.lists.map(item => 
+    const lists = this.state.lists.map((item , index) => 
     //we pass the functions we want to use in the todo file
-    <Todo item = {item} deleteTask={this.deleteTask}/>)
+    <Todo item ={item} deleteTask={this.deleteTask} del={index} />)
     //return the values 
     return (
       <div>

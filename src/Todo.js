@@ -15,14 +15,12 @@ class Todo extends Component {
 
   render() {
     return (
-      <div>
         <li onClick={this.checkTask} className= {this.state.check}>
           <span role="img" aria-label="emoji">📌  </span>{this.props.item}       
-            <button className="button2" onClick={()=> this.props.deleteTask(this.props.del)}>Delete Task</button>
+            <button className="button2" onClick={(e)=> this.props.deleteTask( e , this.props.del)}>Delete Task</button>
               {/* type="delete"*/}
               {/* name="deleteTask"*/}
         </li>
-      </div>
    )}
   }
   
