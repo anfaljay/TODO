@@ -29,6 +29,11 @@ class App extends Component {
     event.preventDefault();
     //copys the items 
     const copy = this.state.lists.slice(0);
+
+    console.log("this.state.listData.newItem" , this.state.listData.newItem)
+
+
+    if( this.state.listData.newItem !== " " ){ 
     //pushes and adds the new tasks 
     copy.push(this.state.listData.newItem)
     
@@ -40,6 +45,7 @@ class App extends Component {
       newItem: " "},
     })
   }
+  }
   deleteTask= (e , del )=>{
     //an event that implement the change to only one and leaving the other
     e.stopPropagation()
@@ -50,12 +56,19 @@ class App extends Component {
         lists: copy
       })
     }
+    componentDidMount() {
+      this.setState({ lists: ["new default list"]})
+    }
+  
   //shares the react components using props 
   render() {
     //goes through the list items and map them to get the items inside 
     const lists = this.state.lists.map((item , index) => 
     //we pass the functions we want to use in the todo file
     <Todo item ={item} deleteTask={this.deleteTask} del={index} />)
+     
+
+    { console.log( "map= \n" , lists ,  "\n this the defaul list before map =\n" ,  this.state.lists )}
     //return the values 
     return (
       <div>
